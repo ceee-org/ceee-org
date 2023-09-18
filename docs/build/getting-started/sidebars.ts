@@ -1,26 +1,45 @@
 module.exports = {
   build: [
+    'welcome',
     {
-      type: 'category',
-      label: 'Networks',
-      collapsed: true,
-      items: [
-        'networks/legacy-mainnet',
-        'networks/mainnet',
-        'networks/overview',
-        'networks/public-testnets',
-        'networks/shimmer',
-      ],
+      type: 'doc',
+      label: 'Networks & Endpoints',
+      id: 'networks-endpoints',
     },
     {
       type: 'category',
-      label: 'Endpoints',
-      collapsed: true,
+      label: 'Tools',
+      link: {
+        type: 'generated-index',
+        title: 'Tools',
+        slug: '/tools',
+      },
       items: [
-        'endpoints/mainnet',
-        'endpoints/devnet',
-        'endpoints/shimmer',
-        'endpoints/testnet',
+        {
+          type: 'link',
+          label: 'CLI Wallet',
+          href: '/cli-wallet/welcome',
+        },
+        {
+          type: 'link',
+          label: 'WASP CLI',
+          href: '/wasp/wasp-cli',
+        },
+        {
+          label: 'Schema Tool',
+          type: 'link',
+          href: '/smart-contracts/guide/wasm_vm/schema',
+        },
+        {
+          label: 'Explorer',
+          type: 'link',
+          href: 'https://explorer.shimmer.network',
+        },
+        {
+          label: 'Testnet Faucet',
+          type: 'link',
+          href: 'https://faucet.testnet.shimmer.network',
+        },
       ],
     },
     {
@@ -37,6 +56,11 @@ module.exports = {
           type: 'link',
           label: 'IotaWallet.NET',
           href: 'https://github.com/IOTA-NET/IotaWallet.NET',
+        },
+        {
+          type: 'link',
+          label: 'Shimmer++',
+          href: 'https://eddytheco.github.io/Shimmerpp/about/',
         },
       ],
     },

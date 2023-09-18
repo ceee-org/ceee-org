@@ -30,7 +30,6 @@ module.exports = {
           items: [
             'introduction/shimmer/introduction',
             'introduction/shimmer/shimmer-token',
-            'introduction/shimmer/governance',
           ],
         },
       ],
@@ -42,8 +41,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Programmes',
-      items: ['programmes/EDF-grant-programme', 'programmes/bug-bounties'],
+      label: 'Programs',
+      items: [
+        'programs/touchpoint',
+        'programs/EDF-grant-programme',
+        'programs/bug-bounties',
+      ],
     },
     {
       type: 'category',
@@ -77,7 +80,7 @@ module.exports = {
         {
           type: 'link',
           label: 'Shimmer Explorer',
-          href: 'https://explorer.chrysalis.network/',
+          href: 'https://explorer.shimmer.network/',
         },
       ],
     },

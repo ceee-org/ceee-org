@@ -1,23 +1,11 @@
 import type { Config } from './common/components/Switcher';
-import {
-  Chronicle,
-  GoShimmer,
-  Hornet,
-  Identity,
-  IotaCore,
-  SmartContracts,
-  Streams,
-  Stronghold,
-  Tools,
-  Wallet,
-} from './common/icons';
 
 const buildDocs = [
   {
     id: 'iota-sdk-1-0-0',
     label: 'IOTA SDK',
-    description: 'Interact with the network.',
-    icon: IotaCore,
+    description: 'Seamlessly integrate IOTA into your app.',
+    icon: 'IotaCore',
     subsection: 'build-layer-1',
     versions: [
       {
@@ -31,18 +19,13 @@ const buildDocs = [
     id: 'identity-rs-0-5',
     label: 'Identity',
     description: 'Trustless digital identity management.',
-    icon: Identity,
+    icon: 'Identity',
     subsection: 'build-layer-1',
     versions: [
       {
-        id: 'identity-rs-0-5',
-        label: '0.5',
-        badges: ['IOTA'],
-      },
-      {
-        id: 'identity-rs-0-6',
-        label: '0.6',
-        badges: ['IOTA'],
+        id: 'identity-rs-next',
+        label: 'next',
+        badges: ['Shimmer'],
       },
       {
         id: 'identity-rs-0-7-alpha',
@@ -50,36 +33,81 @@ const buildDocs = [
         badges: ['Shimmer'],
       },
       {
-        id: 'identity-rs-next',
-        label: 'next',
+        id: 'identity-rs-0-6',
+        label: '0.6',
+        badges: ['IOTA'],
+      },
+      {
+        id: 'identity-rs-0-5',
+        label: '0.5',
+        badges: ['IOTA'],
+      },
+    ],
+  },
+  {
+    id: 'stronghold-rs',
+    label: 'Stronghold',
+    description: 'Securely store secrets.',
+    icon: 'Stronghold',
+    subsection: 'build-layer-1',
+    versions: [
+      {
+        id: 'stronghold-rs',
+        label: '1.1.0',
+        badges: ['IOTA/Shimmer'],
+      },
+    ],
+  },
+  {
+    id: 'cli-wallet',
+    label: 'CLI Wallet',
+    description: 'Command line wallet.',
+    icon: 'Wallet',
+    subsection: 'build-layer-1',
+    versions: [
+      {
+        id: 'cli-wallet',
+        label: '1.0.0',
         badges: ['Shimmer'],
+      },
+    ],
+  },
+  {
+    id: 'apis',
+    label: 'APIs',
+    description: 'All available APIs.',
+    icon: 'Tools',
+    subsection: 'build-layer-1',
+    versions: [
+      {
+        id: 'apis',
       },
     ],
   },
   {
     id: 'iota-rs-1-4-0',
-    label: 'iota.rs',
-    description: 'Interact with the network.',
-    icon: IotaCore,
+    label: 'iota.rs (deprecated)',
+    description: 'Legacy client SDK.',
+    icon: 'IotaCore',
     subsection: 'build-layer-1',
     versions: [
-      {
-        id: 'iota-rs-1-4-0',
-        label: '1.4.0',
-        badges: ['IOTA'],
-      },
       {
         id: 'iota-rs-2-0-1-rc-7',
         label: '2.0.1-rc.7',
         badges: ['Shimmer'],
       },
+      {
+        id: 'iota-rs-1-4-0',
+        label: '1.4.0',
+        badges: ['IOTA'],
+      },
     ],
   },
   {
     id: 'iotajs',
-    label: 'iota.js',
-    description: 'Interact with the network.',
-    icon: IotaCore,
+    label: 'iota.js (deprecated)',
+    description: 'Legacy JavaScript SDK.',
+    icon: 'IotaCore',
     subsection: 'build-layer-1',
     versions: [
       {
@@ -91,41 +119,28 @@ const buildDocs = [
   },
   {
     id: 'wallet-rs-0-1-0',
-    label: 'wallet.rs',
-    description: 'Interact with the network.',
-    icon: Wallet,
+    label: 'wallet.rs (deprecated)',
+    description: 'Legacy wallet SDK.',
+    icon: 'Wallet',
     subsection: 'build-layer-1',
     versions: [
-      {
-        id: 'wallet-rs-0-1-0',
-        label: '0.1.0',
-        badges: ['IOTA'],
-      },
       {
         id: 'wallet-rs-1-0-0-rc-6',
         label: '1.0.0-rc.6',
         badges: ['Shimmer'],
       },
-    ],
-  },
-  {
-    id: 'stronghold-rs',
-    label: 'Stronghold',
-    description: 'Securely store secrets.',
-    icon: Stronghold,
-    subsection: 'build-layer-1',
-    versions: [
       {
-        id: 'stronghold-rs',
-        label: '1.1.0',
-        badges: ['IOTA/Shimmer'],
+        id: 'wallet-rs-0-1-0',
+        label: '0.1.0',
+        badges: ['IOTA'],
       },
     ],
   },
   {
     id: 'iota-streams',
-    label: 'Streams',
-    icon: Streams,
+    label: 'Streams (deprecated)',
+    description: 'Secure data channels over the Tangle.',
+    icon: 'Streams',
     subsection: 'build-layer-1',
     versions: [
       {
@@ -136,22 +151,10 @@ const buildDocs = [
     ],
   },
   {
-    id: 'apis',
-    label: 'APIs',
-    description: 'All available APIs.',
-    icon: Tools,
-    subsection: 'build-layer-1',
-    versions: [
-      {
-        id: 'apis',
-      },
-    ],
-  },
-  {
     id: 'smart-contract-0-7-0',
     label: 'Smart Contracts',
     description: 'Create smart contracts.',
-    icon: SmartContracts,
+    icon: 'SmartContracts',
     subsection: 'build-layer-2',
     versions: [
       {
@@ -167,27 +170,27 @@ const maintainDocs = [
   {
     id: 'hornet-1-2-4',
     label: 'Hornet',
-    description: 'Run a node',
-    icon: Hornet,
+    description: 'The primary node software for IOTA.',
+    icon: 'Hornet',
     subsection: 'maintain-layer-1',
     versions: [
-      {
-        id: 'hornet-1-2-4',
-        label: '1.2.4',
-        badges: ['IOTA'],
-      },
       {
         id: 'hornet-2-0-0-rc-6',
         label: '2.0.0-rc.6',
         badges: ['Shimmer'],
+      },
+      {
+        id: 'hornet-1-2-4',
+        label: '1.2.4',
+        badges: ['IOTA'],
       },
     ],
   },
   {
     id: 'wasp-0-7-0',
     label: 'Wasp',
-    description: 'Create smart contracts',
-    icon: SmartContracts,
+    description: 'The node software to run an ISC network',
+    icon: 'SmartContracts',
     subsection: 'maintain-layer-2',
     versions: [
       {
@@ -200,27 +203,27 @@ const maintainDocs = [
   {
     id: 'chronicle-rs',
     label: 'Chronicle',
-    description: 'Store and query data',
-    icon: Chronicle,
+    description: 'Indexer, archival node, analytics.',
+    icon: 'Chronicle',
     subsection: 'maintain-layer-1',
     versions: [
-      {
-        id: 'chronicle-rs',
-        label: '0.3.0',
-        badges: ['IOTA'],
-      },
       {
         id: 'inx-chronicle',
         label: '1.0.0-rc.1',
         badges: ['Shimmer'],
+      },
+      {
+        id: 'chronicle-rs',
+        label: '0.3.0',
+        badges: ['IOTA'],
       },
     ],
   },
   {
     id: 'goshimmer',
     label: 'GoShimmer',
-    description: 'Research Node implementation for IOTA 2.0',
-    icon: GoShimmer,
+    description: 'Research node implementation for IOTA 2.0',
+    icon: 'GoShimmer',
     subsection: 'maintain-layer-1',
     versions: [
       {
@@ -254,6 +257,10 @@ const config: Config = {
       ],
     },
     {
+      before: {
+        docId: 'maintain',
+        sidebarId: 'maintain',
+      },
       subsections: [
         {
           label: 'Layer 1',

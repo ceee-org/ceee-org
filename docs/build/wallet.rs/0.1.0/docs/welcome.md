@@ -15,6 +15,11 @@ keywords:
 
 # Welcome
 
+:::caution
+This is documentation for wallet.rs, which is no longer actively maintained.
+For up-to-date documentation, see the documentation for its successor the [IOTA SDK](/iota-sdk/welcome).
+:::
+
 Welcome to the official IOTA Wallet Library Software documentation. You can use our documentation to help streamline integrating an IOTA Wallet into your applications. If you want to learn more about the IOTA client libraries, you can check out our [blog post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/) on how they work.
 
 ## wallet.rs
@@ -37,10 +42,10 @@ With the `wallet.rs` library, developers no longer need to use a self-generated 
 
 ## IOTA 1.5 (Chrysalis) in a Nutshell
 
-For some background, you can checkout our [Developer Guide to Chrysalis](https://wiki.iota.org/introduction/explanations/update/what_is_chrysalis/) which explains all of the main concepts behind the IOTA Chrysalis in detail.
+For some background, you can checkout our [Developer Guide to Chrysalis](/introduction/explanations/update/what_is_chrysalis/) which explains all of the main concepts behind the IOTA Chrysalis in detail.
 
-You can also read our [Chrysalis documentation](https://wiki.iota.org/introduction/welcome/) to learn the history of versions between IOTA 1.0 and Chrysalis.
+You can also read our [Chrysalis documentation](/introduction/welcome/) to learn the history of versions between IOTA 1.0 and Chrysalis.
 
 ## Testnet
 
-To join the Chrysalis public devnet, check out our [blog post](https://blog.iota.org/chrysalis-phase-2-testnet-out-now/). You can also learn more about the different Chrysalis components in our [Chrysalis documentation portal](https://wiki.iota.org/introduction/welcome/).
+To join the Chrysalis public devnet, check out our [blog post](https://blog.iota.org/chrysalis-phase-2-testnet-out-now/). You can also learn more about the different Chrysalis components in our [Chrysalis documentation portal](/introduction/welcome/).

@@ -1,9 +1,8 @@
-import AppLibImg from '@site/static/img/homepage/section_application_libraries.png';
-import AppLibImgDark from '@site/static/img/homepage/section_application_libraries_dark.png';
-import ThemedImage from '@theme/ThemedImage';
 import React, { FC } from 'react';
 import Link from '@docusaurus/Link';
-import { Identity, SmartContracts, Streams, Stronghold } from '@site/src/common/icons';
+import icons from '@site/src/icons';
+
+const { Identity, SmartContracts, Streams, Stronghold } = icons;
 
 interface LanguagesProps {
   languages?: { [key: string]: string };
@@ -46,23 +45,12 @@ const LibrariesSection: FC = () => (
           />
         </div>
         <h3 className='libraries__header'>Identity</h3>
-        <ul className='libraries__features'>
-          <li className='libraries__feature'>
-            <Link to='/identity.rs/decentralized_identity'>
-              Decentralized Identities (SSI)
-            </Link>
-          </li>
-          <li className='libraries__feature'>
-            <Link to='/identity.rs/concepts/decentralized_identifiers/overview'>
-              Decentralized Identifiers (DID)
-            </Link>
-          </li>
-          <li className='libraries__feature'>
-            <Link to='/identity.rs/concepts/verifiable_credentials/overview'>
-              Verifiable Credentials (VC)
-            </Link>
-          </li>
-        </ul>
+        <p className='libraries__feature'>
+          The IOTA Identity framework serves as a unifying layer of trust by
+          implementing common standards for Decentralized Identity that work
+          across various DLTs as well as IOTA-specific methods, catering to
+          individuals, organizations, and objects.
+        </p>
         <Link
           to='/identity.rs/introduction'
           className='libraries__button button button--outline button--primary'
@@ -84,16 +72,11 @@ const LibrariesSection: FC = () => (
           />
         </div>
         <h3 className='libraries__header'>Streams</h3>
-        <ul className='libraries__features'>
-          <li className='libraries__feature'>
-            <Link to='/streams/getting_started'>
-              Organize and share data securely
-            </Link>
-          </li>
-          <li className='libraries__feature'>
-            <Link to='/streams/specs'>Read the specification</Link>
-          </li>
-        </ul>
+        <p className='libraries__feature'>
+          The IOTA Streams framework provides a secure protocol for message
+          verification and protection using the Channels protocol for flexible
+          structuring of channels, publishers and subscribers.
+        </p>
         <Link
           to='/streams/welcome'
           className='libraries__button button button--outline button--primary'
@@ -115,23 +98,12 @@ const LibrariesSection: FC = () => (
           />
         </div>
         <h3 className='libraries__header'>Stronghold</h3>
-        <ul className='libraries__features'>
-          <li className='libraries__feature'>
-            <Link to='/stronghold.rs/how_tos/cli/store_read_write'>
-              Read and write to the vault
-            </Link>
-          </li>
-          <li className='libraries__feature'>
-            <Link to='/stronghold.rs/how_tos/cli/read_snapshot'>
-              Manage snapshots
-            </Link>
-          </li>
-          <li className='libraries__feature'>
-            <Link to='/stronghold.rs/explanations/non-contiguous-data-types'>
-              Learn about non-contiguous data types
-            </Link>
-          </li>
-        </ul>
+        <p className='libraries__feature'>
+          Stronghold is an open-source library designed to securely protect
+          digital secrets like IOTA Seeds and private keys, serving as a
+          cryptographic database that adheres to best practices without
+          revealing sensitive information.
+        </p>
         <Link
           to='/stronghold.rs/getting_started'
           className='libraries__button button button--outline button--primary'
@@ -152,9 +124,11 @@ const LibrariesSection: FC = () => (
           </div>
         </div>
         <h3 className='libraries__header'>IOTA Smart Contracts</h3>
-        <p className='libraries__body'>
+        <p className='libraries__feature'>
           The IOTA Smart Contracts Protocol brings scalable and flexible smart
-          contracts into the IOTA ecosystem.
+          contracts into the IOTA ecosystem. With control over gas fees and
+          privacy settings, supporting both Rust/Wasm and Solidity/EVM smart
+          contracts.
         </p>
         <div className='start-building__buttons'>
           <Link
@@ -163,12 +137,6 @@ const LibrariesSection: FC = () => (
           >
             Learn about ISC
           </Link>
-          {/* <Link
-            to='/smart-contracts/guide/evm/examples/introduction'
-            className='start-building__button button button--primary'
-          >
-            Run a smart contract
-          </Link> */}
         </div>
       </div>
     </div>

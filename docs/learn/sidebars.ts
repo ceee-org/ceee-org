@@ -2,136 +2,57 @@ module.exports = {
   build: [
     {
       type: 'category',
-      label: 'Chrysalis',
-      collapsed: true,
-      items: [
-        'chrysalis/introduction',
-        {
-          type: 'category',
-          label: 'Core Concepts',
-          items: [
-            'chrysalis/core-concepts/white-flag-consensus',
-            'chrysalis/core-concepts/switch-to-UTXO',
-            'chrysalis/core-concepts/EdDSA-support',
-            'chrysalis/core-concepts/binary-transaction-layout',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Node Software',
-          collapsed: true,
-          items: [
-            {
-              label: 'Introduction',
-              type: 'doc',
-              id: 'chrysalis/nodes/node-software',
-            },
-            {
-              label: 'Hornet',
-              type: 'link',
-              href: '/hornet/welcome',
-            },
-            {
-              label: 'Chronicle',
-              type: 'link',
-              href: '/chronicle/welcome',
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'About Nodes',
-          collapsed: true,
-          items: [
-            {
-              label: 'Introduction',
-              type: 'doc',
-              id: 'chrysalis/nodes/about-nodes',
-            },
-            'chrysalis/nodes/become-a-node-operator',
-            {
-              type: 'category',
-              label: 'API Reference',
-              collapsed: true,
-              items: [
-                'chrysalis/nodes/api_reference',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Explanations',
-              collapsed: false,
-              items: [
-                'chrysalis/nodes/explanations/nodes_101',
-                'chrysalis/nodes/explanations/security_101',
-              ],
-            },
-          ],
-        },
-        'chrysalis/tips',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Stardust',
-      collapsed: true,
-      items: [
-        'stardust/introduction',
-        {
-          type: 'category',
-          label: 'Core Concepts',
-          items: [
-            'stardust/core-concepts/multi-asset-ledger',
-            'stardust/core-concepts/consensus',
-            'stardust/core-concepts/output-unlock-conditions',
-            'stardust/core-concepts/output-features',
-            'stardust/core-concepts/storage-deposit',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'About Nodes',
-          collapsed: true,
-          link: {
-            type: 'doc',
-            id: 'stardust/nodes/about-nodes',
-          },
-          items: [
-            'stardust/nodes/about-nodes',
-            'stardust/nodes/hornet',
-            'stardust/nodes/become-a-node-operator',
-          ],
-        },
-        'stardust/tips',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'IOTA 2.0',
-      collapsed: true,
+      label: 'Protocols',
+      collapsed: false,
       items: [
         {
-          type: 'category',
+          type: 'doc',
           label: 'Introduction',
+          id: 'protocols/introduction',
+        },
+        {
+          type: 'doc',
+          label: 'The Coordinator',
+          id: 'protocols/coordinator',
+        },
+        {
+          type: 'category',
+          label: 'Chrysalis',
+          collapsed: true,
           items: [
-            'iota2.0/introduction/five-principles',
-            'iota2.0/introduction/digital-autonomy',
+            'protocols/chrysalis/introduction',
+            {
+              type: 'category',
+              label: 'Core Concepts',
+              items: [
+                'protocols/chrysalis/core-concepts/white-flag-consensus',
+                'protocols/chrysalis/core-concepts/switch-to-UTXO',
+                'protocols/chrysalis/core-concepts/EdDSA-support',
+                'protocols/chrysalis/core-concepts/binary-transaction-layout',
+              ],
+            },
+            'protocols/chrysalis/tips',
           ],
         },
         {
           type: 'category',
-          label: 'Core Concepts',
+          label: 'Stardust',
+          collapsed: true,
           items: [
-            'iota2.0/core-concepts/data-structures',
-            'iota2.0/core-concepts/data-flow',
-            'iota2.0/core-concepts/networking',
-            'iota2.0/core-concepts/communication',
-            'iota2.0/core-concepts/consensus',
-            'iota2.0/core-concepts/mana',
-            'iota2.0/core-concepts/validators',
+            'protocols/stardust/introduction',
+            {
+              type: 'category',
+              label: 'Core Concepts',
+              items: [
+                'protocols/stardust/core-concepts/multi-asset-ledger',
+                'protocols/stardust/core-concepts/output-unlock-conditions',
+                'protocols/stardust/core-concepts/output-features',
+                'protocols/stardust/core-concepts/storage-deposit',
+              ],
+            },
+            'protocols/stardust/tips',
           ],
         },
-        'iota2.0/tips',
       ],
     },
     {
@@ -269,6 +190,19 @@ module.exports = {
         },
       ],
     },
-    'glossary'
+    {
+      type: 'category',
+      label: 'Governance',
+      collapsed: true,
+      items: [
+        'governance/shimmer-governance-intro',
+        'governance/governance-tech',
+        'governance/the-shimmer-governance-framework',
+        'governance/shimmer-community-grant-committee',
+        'governance/governance-scope',
+        'governance/shimmer-firefly-governance-guide',
+      ],
+    },
+    'glossary',
   ],
 };

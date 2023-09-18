@@ -118,6 +118,10 @@ module.exports = async () => {
       id: 'iota-rs-2-0-1-rc-7',
       path: path.resolve(__dirname, 'docs/build/iota.rs/2.0.1-rc.7/docs'),
       routeBasePath: 'iota.rs',
+      bannerPath: path.resolve(
+        __dirname,
+        'banners/pre-sdk-libs-deprecated.mdx',
+      ),
       sidebarPath: path.resolve(
         __dirname,
         'docs/build/iota.rs/2.0.1-rc.7/sidebars.js',
@@ -134,7 +138,10 @@ module.exports = async () => {
       id: 'iotajs',
       path: path.resolve(__dirname, 'docs/build/iota.js/2.0.0-rc.1/docs'),
       routeBasePath: 'iota.js',
-      bannerPath: path.resolve(__dirname, 'banners/iota-js-deprecated.mdx'),
+      bannerPath: path.resolve(
+        __dirname,
+        'banners/pre-sdk-libs-deprecated.mdx',
+      ),
       sidebarPath: path.resolve(
         __dirname,
         'docs/build/iota.js/2.0.0-rc.1/sidebars.js',
@@ -159,6 +166,10 @@ module.exports = async () => {
       id: 'wallet-rs-1-0-0-rc-6',
       path: path.resolve(__dirname, 'docs/build/wallet.rs/1.0.0-rc.6/docs'),
       routeBasePath: 'wallet.rs',
+      bannerPath: path.resolve(
+        __dirname,
+        'banners/pre-sdk-libs-deprecated.mdx',
+      ),
       sidebarPath: path.resolve(
         __dirname,
         'docs/build/wallet.rs/1.0.0-rc.6/sidebars.js',
@@ -184,24 +195,90 @@ module.exports = async () => {
       id: 'apis',
       path: path.resolve(__dirname, 'docs/build/apis'),
       routeBasePath: 'apis',
-      sidebarPath: path.resolve(
-        __dirname,
-        'docs/build/apis/sidebars.ts',
-      ),
+      sidebarPath: path.resolve(__dirname, 'docs/build/apis/sidebars.ts'),
       docItemComponent: '@theme/ApiItem',
     },
     {
       id: 'iota-streams',
       path: path.resolve(__dirname, 'docs/build/streams/0.2.0/docs'),
       routeBasePath: 'streams',
+      bannerPath: path.resolve(
+        __dirname,
+        'banners/iota-streams-deprecated.mdx',
+      ),
       sidebarPath: path.resolve(
         __dirname,
         'docs/build/streams/0.2.0/sidebars.js',
       ),
     },
+    {
+      id: 'introduction-docs-chrysalis',
+      path: path.resolve(
+        __dirname,
+        'docs/build/introduction-docs/chrysalis/docs',
+      ),
+      routeBasePath: 'introduction',
+      sidebarPath: path.resolve(
+        __dirname,
+        'docs/build/introduction-docs/chrysalis/sidebars.js',
+      ),
+      versions: {
+        current: {
+          label: 'Chrysalis',
+          badge: true,
+        },
+      },
+    },
+    {
+      id: 'introduction-docs-stardust',
+      path: path.resolve(
+        __dirname,
+        'docs/build/introduction-docs/stardust/docs',
+      ),
+      routeBasePath: 'introduction',
+      sidebarPath: path.resolve(
+        __dirname,
+        'docs/build/introduction-docs/stardust/sidebars.js',
+      ),
+      versions: {
+        current: {
+          label: 'Stardust',
+          path: 'stardust',
+          badge: true,
+        },
+      },
+    },
+    {
+      id: 'cli-wallet',
+      path: path.resolve(__dirname, 'docs/build/cli-wallet/1.0.0/docs'),
+      routeBasePath: 'cli-wallet',
+      sidebarPath: path.resolve(
+        __dirname,
+        'docs/build/cli-wallet/1.0.0/sidebars.js',
+      ),
+    },
+    {
+      id: 'iota-zebra-tutorials',
+      path: path.resolve(__dirname, 'docs/build/zebra-iota-edge-sdk/tutorials'),
+      routeBasePath: 'zebra-tutorials',
+      sidebarPath: path.resolve(
+        __dirname,
+        'docs/build/zebra-iota-edge-sdk/sidebars.js',
+      ),
+    },
   ];
 
   const maintainPlugins = [
+    {
+      id: 'maintain',
+      globalSidebars: ['maintain'],
+      path: path.resolve(__dirname, 'docs/maintain/getting-started'),
+      sidebarPath: path.resolve(
+        __dirname,
+        'docs/maintain/getting-started/sidebars.ts',
+      ),
+      routeBasePath: 'maintain',
+    },
     {
       id: 'hornet-1-2-4',
       path: path.resolve(__dirname, 'docs/maintain/hornet/1.2.4/docs'),

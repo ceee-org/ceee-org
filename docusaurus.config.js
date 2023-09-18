@@ -3,6 +3,7 @@ const path = require('path');
 const { create_doc_plugin, globStatic } = require('./src/utils/config');
 const common = require('./common/docusaurus.config');
 const contentConfigs = require('./contentPlugins');
+const articleRedirectsFile = require('./articleRedirects');
 
 module.exports = async () => {
   const contentPlugins = await Promise.all(
@@ -22,10 +23,6 @@ module.exports = async () => {
 
   const isProduction = MODE === 'production';
 
-  const scripts = {
-    scripts: ['/js/search-environment-observer.js'],
-  };
-
   const themeConfig = {
     themeConfig: {
       image: 'img/iota-wiki.png',
@@ -44,15 +41,15 @@ module.exports = async () => {
           },
           {
             label: 'Learn',
-            to: '/learn/stardust/introduction',
+            to: '/learn/protocols/introduction',
             activeBaseRegex: '^(/[^/]+)?/learn/.*',
           },
           {
             label: 'Build',
-            to: '/iota-sdk/welcome',
+            to: '/build/welcome/',
             activeBaseRegex:
-              '^(/[^/]+)?/iota-sdk/.*|' +
               '^(/[^/]+)?/build/.*|' +
+              '^(/[^/]+)?/iota-sdk/.*|' +
               '^(/[^/]+)?/identity.rs/.*|' +
               '^(/[^/]+)?/iota.rs/.*|' +
               '^(/[^/]+)?/iota.js/.*|' +
@@ -63,8 +60,9 @@ module.exports = async () => {
           },
           {
             label: 'Maintain',
-            to: '/hornet/welcome',
+            to: '/maintain/welcome',
             activeBaseRegex:
+              '^(/[^/]+)?/maintain/.*|' +
               '^(/[^/]+)?/hornet/.*|' +
               '^(/[^/]+)?/wasp/.*|' +
               '^(/[^/]+)?/chronicle/.*|' +
@@ -163,61 +161,180 @@ module.exports = async () => {
       plugins: [
         ...contentPlugins,
         [
-          "docusaurus-plugin-openapi-docs",
+          'docusaurus-plugin-openapi-docs',
           {
-            id: "openapi",
-            docsPluginId: "apis", // e.g. "classic" or the plugin-content-docs id
+            id: 'openapi',
+            docsPluginId: 'apis', // e.g. "classic" or the plugin-content-docs id
             config: {
               coreApiChrysalis: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0013/rest-api.yaml',
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0013/rest-api.yaml',
                 outputDir: path.resolve(__dirname, 'docs/build/apis/core/v1'),
                 sidebarOptions: {
                   groupPathsBy: 'tag',
                 },
               },
               coreApiShimmer: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0025/core-rest-api.yaml',
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0025/core-rest-api.yaml',
                 outputDir: path.resolve(__dirname, 'docs/build/apis/core/v2'),
                 sidebarOptions: {
                   groupPathsBy: 'tag',
                 },
               },
               waspApi: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/wasp/develop/clients/apiclient/api/openapi.yaml',
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/wasp/develop/clients/apiclient/api/openapi.yaml',
                 outputDir: path.resolve(__dirname, 'docs/build/apis/wasp'),
                 sidebarOptions: {
-                  groupPathsBy: "tag",
+                  groupPathsBy: 'tag',
                 },
               },
               indexerApi: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0026/indexer-rest-api.yaml',
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0026/indexer-rest-api.yaml',
                 outputDir: path.resolve(__dirname, 'docs/build/apis/indexer'),
                 sidebarOptions: {
-                  groupPathsBy: "tag",
+                  groupPathsBy: 'tag',
                 },
               },
               poiApi: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/inx-poi/develop/rest-api.yaml',
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/inx-poi/develop/rest-api.yaml',
                 outputDir: path.resolve(__dirname, 'docs/build/apis/poi'),
                 sidebarOptions: {
-                  groupPathsBy: "tag",
+                  groupPathsBy: 'tag',
                 },
               },
               explorerApi: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/inx-chronicle/main/documentation/api/api-explorer.yml',
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/inx-chronicle/main/documentation/api/api-explorer.yml',
                 outputDir: path.resolve(__dirname, 'docs/build/apis/explorer'),
                 sidebarOptions: {
-                  groupPathsBy: "tag",
+                  groupPathsBy: 'tag',
                 },
               },
               ircMetadata: {
-                specPath: 'https://raw.githubusercontent.com/iotaledger/inx-irc-metadata/develop/rest-api.yaml',
-                outputDir: path.resolve(__dirname, 'docs/build/apis/irc-metadata'),
+                specPath:
+                  'https://raw.githubusercontent.com/iotaledger/inx-irc-metadata/develop/rest-api.yaml',
+                outputDir: path.resolve(
+                  __dirname,
+                  'docs/build/apis/irc-metadata',
+                ),
                 sidebarOptions: {
-                  groupPathsBy: "tag",
+                  groupPathsBy: 'tag',
                 },
               },
-            }
+            },
+          },
+        ],
+        [
+          '@docusaurus/plugin-client-redirects',
+          {
+            redirects: articleRedirectsFile.articleRedirects,
+            // directory redirects - only added for directories that didn't have a direct match
+            createRedirects(existingPath) {
+              const redirects = [
+                {
+                  from: '/develop/nodes/rest-api',
+                  to: '/apis/core/v1',
+                },
+                {
+                  from: '/shimmer/chronicle',
+                  to: '/chronicle/1.0.0-rc.1',
+                },
+                {
+                  from: '/shimmer/cli-wallet',
+                  to: '/cli-wallet',
+                },
+                {
+                  from: '/shimmer/community',
+                  to: '/community',
+                },
+                {
+                  from: '/shimmer/develop/nodes/core-rest-api',
+                  to: '/apis/core/v2',
+                },
+                {
+                  from: '/shimmer/goshimmer',
+                  to: '/goshimmer',
+                },
+                {
+                  from: '/shimmer/hornet',
+                  to: '/hornet/2.0.0-rc.6',
+                },
+                {
+                  from: '/shimmer/identity.rs',
+                  to: '/identity.rs/0.7',
+                },
+                {
+                  from: '/shimmer/introduction',
+                  to: '/introduction/stardust',
+                },
+                {
+                  from: '/shimmer/iota-sdk',
+                  to: '/iota-sdk',
+                },
+                {
+                  from: '/shimmer/iota.js',
+                  to: '/iota.js',
+                },
+                {
+                  from: '/shimmer/iota.rs',
+                  to: '/iota.rs/2.0.1-rc.7',
+                },
+                {
+                  from: '/shimmer/smart-contracts/guide/chains_and_nodes',
+                  to: '/smart-contracts/guide/chains_and_nodes',
+                },
+                {
+                  from: '/shimmer/smart-contracts/guide/core_concepts',
+                  to: '/learn/smart-contracts/core_concepts',
+                },
+                {
+                  from: '/shimmer/smart-contracts/guide/evm/compatibility',
+                  to: '/smart-contracts/guide/evm/compatibility',
+                },
+                {
+                  from: '/shimmer/smart-contracts/guide/evm',
+                  to: '/smart-contracts/guide/evm',
+                },
+                {
+                  from: '/shimmer/smart-contracts/guide/solo',
+                  to: '/smart-contracts/guide/solo',
+                },
+                {
+                  from: '/shimmer/smart-contracts/guide/wasm_vm',
+                  to: '/smart-contracts/guide/wasm_vm',
+                },
+                {
+                  from: '/shimmer/stronghold.rs',
+                  to: '/stronghold.rs',
+                },
+                {
+                  from: '/shimmer/team',
+                  to: '/team',
+                },
+                {
+                  from: '/shimmer/tutorials',
+                  to: '/tutorials',
+                },
+                {
+                  from: '/shimmer/wallet.rs',
+                  to: '/wallet.rs/1.0.0-rc.6',
+                },
+                {
+                  from: '/shimmer/learn/governance/',
+                  to: '/learn/governance/',
+                },
+              ];
+
+              for (const redirect of redirects) {
+                if (existingPath.includes(redirect.to)) {
+                  return existingPath.replace(redirect.to, redirect.from);
+                }
+              }
+            },
           },
         ],
       ],
@@ -234,7 +351,6 @@ module.exports = async () => {
     },
     themeConfig,
     isProduction ? production : {},
-    scripts,
     ...additionalPlugins,
   );
 };

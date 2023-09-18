@@ -21,15 +21,12 @@ keywords:
 ![IOTA SDK Overview](/img/banner/client_lib_overview.png)
 
 The IOTA SDK provides a convenient and efficient way to interact with nodes in the Shimmer
-and IOTA networks running the [Stardust protocol](https://wiki.iota.org/shimmer/develop/explanations/what-is-stardust).
+and IOTA networks running the [Stardust protocol](/learn/protocols/stardust/introduction).
 It consists of two main modules: `client` and `wallet`.
 
 The `wallet` module uses high-level functions that simplify everyday operations with a standardized interface for
-developers to build value transaction applications. For example, [`Account.sync()`](./references/nodejs/classes/Account.md#sync)
-acts as a high-level function that, in turn, calls [`Client.basic_output_ids()`](./references/nodejs/classes/Client.md#basicoutputids)
-and [`Client.get_outputs()`](./references/nodejs/classes/Client.md#getoutputs)). Unlike the `client` module, the `wallet`
-module maintains a state. It can optionally interact with [IOTA Stronghold](https://github.com/iotaledger/stronghold.rs/)
-for seed handling, storage, and state backup.
+developers to build value transaction applications. Unlike the `client` module, the `wallet`
+module is stateful. It can optionally interact with [IOTA Stronghold](https://github.com/iotaledger/stronghold.rs/) for seed handling, storage, and state backup.
 
 The `client` module provides more flexibility and access to low-level functions, which are usually kept "under the hood" by the
 `wallet` module. It aims to allow you to customize how you interact with the network in depth, at the cost of
@@ -54,15 +51,15 @@ programming pattern, so the Python binding uses named constructor arguments.
 Your application communicates directly with the IOTA SDK in Rust or through one of the language bindings. The IOTA SDK
 turns your requests into REST API calls and sends them to a node. The node, in turn, interacts with the rest of an
 IOTA network, which could be the
-[main operational network (mainnet)](https://wiki.iota.org/shimmer/develop/explanations/what-is-shimmer/networks/#shimmer-mainnet)
+[main operational network (mainnet)](/build/networks-endpoints#shimmer)
 or
-a [network for testing purposes (testnet)](https://wiki.iota.org/shimmer/develop/explanations/what-is-shimmer/networks/#public-testnet).
+a [network for testing purposes (testnet)](/build/networks-endpoints#public-testnet).
 
 !["An overview of the IOTA SDK layers."](/img/layered_overview.png 'An overview of the IOTA SDK layers.')
 
 ## Secure Secret Management
 
-You can use [Stronghold](https://wiki.iota.org/shimmer/stronghold.rs/welcome) for secure secret management. Stronghold
+You can use [Stronghold](/stronghold.rs/welcome) for secure secret management. Stronghold
 can store the encrypted seed at rest. It is not possible to extract the seed from Stronghold for security purposes.
 Stronghold uses encrypted snapshots that can easily be backed up and securely shared between devices. These snapshots
 are further secured with a password.

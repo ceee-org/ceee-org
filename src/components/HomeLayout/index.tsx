@@ -7,7 +7,11 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
 import './styles.css';
-import {
+import icons from '@site/src/icons';
+import CoreLibrariesSection from './CoreLibrariesSection';
+import AppLibrariesSection from './AppLibrariesSection';
+
+const {
   Chronicle,
   Discord,
   Hornet,
@@ -19,10 +23,7 @@ import {
   Tips,
   Tutorials,
   Wasp,
-} from '@site/src/common/icons';
-import CoreLibrariesSection from './CoreLibrariesSection';
-import AppLibrariesSection from './AppLibrariesSection';
-import FeaturedSlider from '@site/src/common/components/FeaturedSlider';
+} = icons;
 
 interface HomepageSectionProps {
   header?: string;
@@ -63,7 +64,31 @@ export default function HomeLayout() {
   return (
     <Layout description={siteConfig.tagline}>
       <div className='homepage'>
-        <FeaturedSlider />
+        <HomepageSection className='homepage__section--intro'>
+          <div className='intro'>
+            <div className='intro__section'>
+              <h1 className='intro__header'>{siteConfig.tagline}</h1>
+              <p className='intro__description'>
+                Build apps capable of taking millions of users on journeys
+                they&apos;ve never been on before. Simple. Scalable. Secure.
+              </p>
+              <div className='intro__buttons'>
+                <Link
+                  to='/get-started/introduction'
+                  className='intro__button button button--outline button--primary'
+                >
+                  Introduction
+                </Link>
+                <Link
+                  to='/build/welcome'
+                  className='intro__button button button--primary'
+                >
+                  Start building
+                </Link>
+              </div>
+            </div>
+          </div>
+        </HomepageSection>
         <HomepageSection header='Use IOTA'>
           <div className='about__cards'>
             <Link
@@ -81,14 +106,18 @@ export default function HomeLayout() {
                 </p>
               </div>
             </Link>
-            <Link to='/get-started/introduction/shimmer/introduction' className='about__card'>
+            <Link
+              to='/get-started/introduction/shimmer/introduction'
+              className='about__card'
+            >
               <div className='about__section'>
                 <div className='about__icon'>
                   <Shimmer />
                 </div>
                 <h3 className='about__header'>What is Shimmer?</h3>
                 <p className='about__description'>
-                  A scalable and feeless network enabling frictionless decentralized and scalable Web3 economies.
+                  A scalable and feeless network enabling frictionless
+                  decentralized and scalable Web3 economies.
                 </p>
               </div>
             </Link>
@@ -107,8 +136,8 @@ export default function HomeLayout() {
           </div>
         </HomepageSection>
         <HomepageSection
-          header='Core Libraries'
-          description='With the IOTA core libraries you can easily integrate IOTA into your own applications.'
+          header='IOTA SDK'
+          description='With the IOTA SDK you can easily integrate IOTA into your own applications.'
         >
           <CoreLibrariesSection />
         </HomepageSection>
@@ -129,18 +158,12 @@ export default function HomeLayout() {
               </div>
               <div className='nodes__section'>
                 <h3 className='nodes__header'>Hornet</h3>
-                <ul className='nodes__features'>
-                  <li className='nodes__feature'>
-                    <Link to='/hornet/welcome'>
-                      A node implementation written in Go
-                    </Link>
-                  </li>
-                  <li className='nodes__feature'>
-                    <Link to='/hornet/getting_started'>
-                      Participate in the network
-                    </Link>
-                  </li>
-                </ul>
+                <p className='libraries__feature'>
+                  Hornet is an easy-to-install node software that offers full
+                  node capabilities and network updates, granting you direct
+                  access to the IOTA network and contributing to its resilience
+                  by validating messages and transactions.
+                </p>
                 <Link
                   to='/hornet/how_tos/using_docker'
                   className='nodes__button button button--outline button--primary'
@@ -155,25 +178,12 @@ export default function HomeLayout() {
               </div>
               <div className='nodes__section'>
                 <h3 className='nodes__header'>Wasp</h3>
-                <ul className='nodes__features'>
-                  <li className='nodes__feature'>
-                    <Link to='/smart-contracts/guide/core_concepts/validators'>
-                      Validate smart contracts
-                    </Link>
-                  </li>
-                  <li className='nodes__feature'>
-                    <Link to='/smart-contracts/guide/chains_and_nodes/running-a-node'>
-                      Run the Shimmer Smart Contract Protocol
-                    </Link>
-                  </li>
-                  <li className='nodes__feature'>
-                    <Link to='/smart-contracts/guide/evm/introduction'>
-                      Run EVM/Solidity Smart Contract
-                    </Link>
-                  </li>
-                </ul>
+                <p className='libraries__feature'>
+                  WASP is an INX plugin you can install and use to run your
+                  smart contract chain using the IOTA Smart Contracts protocol.
+                </p>
                 <Link
-                  to='/smart-contracts/guide/chains_and_nodes/running-a-node'
+                  to='/wasp/running-a-node'
                   className='nodes__button button button--outline button--primary'
                 >
                   Run a smart contract node
@@ -186,23 +196,10 @@ export default function HomeLayout() {
               </div>
               <div className='nodes__section'>
                 <h3 className='nodes__header'>Chronicle</h3>
-                <ul className='nodes__features'>
-                  <li className='nodes__feature'>
-                    <Link to='/chronicle/welcome'>
-                      Efficient and reliable permanodes
-                    </Link>
-                  </li>
-                  <li className='nodes__feature'>
-                    <Link to='/chronicle/welcome#project-structure'>
-                      Solution for storing all transactions
-                    </Link>
-                  </li>
-                  <li className='nodes__feature'>
-                    <Link to='/chronicle/config_reference'>
-                      Managing and accessing the permanode
-                    </Link>
-                  </li>
-                </ul>
+                <p className='libraries__feature'>
+                  Chronicle is a permanode solution that allows you to store and
+                  retrieve IOTA messages and data in real time.
+                </p>
                 <Link
                   to='chronicle/getting_started'
                   className='nodes__button button button--outline button--primary'
@@ -235,7 +232,7 @@ export default function HomeLayout() {
                 your own project!
               </p>
             </Link>
-            <Link to='integration-services/welcome' className='resources__card'>
+            <Link to='build/tools' className='resources__card'>
               <div className='resources__icon'>
                 <IntegrationServices />
               </div>
