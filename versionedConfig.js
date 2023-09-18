@@ -1,3 +1,5 @@
+const path = require('path');
+
 exports.buildPluginsConfig = [
   {
     id: 'iota-sdk',
@@ -20,6 +22,19 @@ exports.buildPluginsConfig = [
     ],
   },
   {
+    id: 'smart-contract',
+    label: 'Smart Contracts',
+    description: 'Create smart contracts.',
+    icon: 'SmartContracts',
+    subsection: 'build-layer-2',
+    versions: [
+      {
+        label: '0.7',
+        badges: ['Shimmer'],
+      },
+    ],
+  },
+  {
     id: 'identity-rs',
     routeBasePath: 'identity.rs',
     label: 'Identity',
@@ -38,9 +53,76 @@ exports.buildPluginsConfig = [
       {
         label: '0.6',
         badges: ['IOTA'],
+        bannerPath: path.resolve(
+          __dirname,
+          'banners/identity-stronghold-migration.mdx',
+        ),
       },
       {
         label: '0.5',
+        badges: ['IOTA'],
+        bannerPath: path.resolve(__dirname, 'banners/identity-deprecated.mdx'),
+      },
+    ],
+  },
+  {
+    id: 'iota-rs',
+    routeBasePath: 'iota.rs',
+    label: 'iota.rs (deprecated)',
+    description: 'Legacy client SDK.',
+    icon: 'IotaCore',
+    subsection: 'build-layer-1',
+    versions: [
+      {
+        label: '2.0-rc.7',
+        badges: ['Shimmer'],
+        bannerPath: path.resolve(
+          __dirname,
+          'banners/pre-sdk-libs-deprecated.mdx',
+        ),
+      },
+      {
+        label: '1.4',
+        badges: ['IOTA'],
+      },
+    ],
+  },
+  {
+    id: 'iota-js',
+    routeBasePath: 'iota.js',
+    label: 'iota.js (deprecated)',
+    description: 'Legacy JavaScript SDK.',
+    icon: 'IotaCore',
+    subsection: 'build-layer-1',
+    versions: [
+      {
+        label: '2.0-rc.1',
+        badges: ['Shimmer'],
+        bannerPath: path.resolve(
+          __dirname,
+          'banners/pre-sdk-libs-deprecated.mdx',
+        ),
+      },
+    ],
+  },
+  {
+    id: 'wallet-rs',
+    routeBasePath: 'wallet.rs',
+    label: 'wallet.rs (deprecated)',
+    description: 'Legacy wallet SDK.',
+    icon: 'Wallet',
+    subsection: 'build-layer-1',
+    versions: [
+      {
+        label: '1.0-rc.6',
+        badges: ['Shimmer'],
+        bannerPath: path.resolve(
+          __dirname,
+          'banners/pre-sdk-libs-deprecated.mdx',
+        ),
+      },
+      {
+        label: '0.1',
         badges: ['IOTA'],
       },
     ],
@@ -60,19 +142,6 @@ exports.buildPluginsConfig = [
     ],
   },
   {
-    id: 'cli-wallet',
-    label: 'CLI Wallet',
-    description: 'Command line wallet.',
-    icon: 'Wallet',
-    subsection: 'build-layer-1',
-    versions: [
-      {
-        label: '1.0',
-        badges: ['Shimmer'],
-      },
-    ],
-  },
-  {
     id: 'apis',
     label: 'APIs',
     description: 'All available APIs.',
@@ -81,56 +150,6 @@ exports.buildPluginsConfig = [
     versions: [
       {
         badges: ['IOTA/Shimmer'],
-      },
-    ],
-  },
-  {
-    id: 'iota-rs',
-    routeBasePath: 'iota.rs',
-    label: 'iota.rs (deprecated)',
-    description: 'Legacy client SDK.',
-    icon: 'IotaCore',
-    subsection: 'build-layer-1',
-    versions: [
-      {
-        label: '2.0-rc.7',
-        badges: ['Shimmer'],
-      },
-      {
-        label: '1.4',
-        badges: ['IOTA'],
-      },
-    ],
-  },
-  {
-    id: 'iota-js',
-    routeBasePath: 'iota.js',
-    label: 'iota.js (deprecated)',
-    description: 'Legacy JavaScript SDK.',
-    icon: 'IotaCore',
-    subsection: 'build-layer-1',
-    versions: [
-      {
-        label: '2.0-rc.1',
-        badges: ['Shimmer'],
-      },
-    ],
-  },
-  {
-    id: 'wallet-rs',
-    routeBasePath: 'wallet.rs',
-    label: 'wallet.rs (deprecated)',
-    description: 'Legacy wallet SDK.',
-    icon: 'Wallet',
-    subsection: 'build-layer-1',
-    versions: [
-      {
-        label: '1.0-rc.6',
-        badges: ['Shimmer'],
-      },
-      {
-        label: '0.1',
-        badges: ['IOTA'],
       },
     ],
   },
@@ -145,18 +164,22 @@ exports.buildPluginsConfig = [
       {
         label: '0.2',
         badges: ['IOTA'],
+        bannerPath: path.resolve(
+          __dirname,
+          'banners/iota-streams-deprecated.mdx',
+        ),
       },
     ],
   },
   {
-    id: 'smart-contract',
-    label: 'Smart Contracts',
-    description: 'Create smart contracts.',
-    icon: 'SmartContracts',
-    subsection: 'build-layer-2',
+    id: 'cli-wallet',
+    label: 'CLI Wallet',
+    description: 'Command line wallet.',
+    icon: 'Wallet',
+    subsection: 'build-layer-1',
     versions: [
       {
-        label: '0.7',
+        label: '1.0',
         badges: ['Shimmer'],
       },
     ],
