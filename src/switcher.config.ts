@@ -1,9 +1,15 @@
 import type { Config } from './common/components/Switcher';
 import { generateSwitcherConfig } from './utils/pluginConfigGenerators';
-const { buildPluginsConfig, maintainPluginsConfig } = require('../versionedConfig');
+const {
+  buildPluginsConfig,
+  maintainPluginsConfig,
+} = require('../versionedConfig');
 
 const config: Config = {
-  docs: [...generateSwitcherConfig(buildPluginsConfig), ...generateSwitcherConfig(maintainPluginsConfig)],
+  docs: [
+    ...generateSwitcherConfig(buildPluginsConfig),
+    ...generateSwitcherConfig(maintainPluginsConfig),
+  ],
   sections: [
     {
       before: {
