@@ -1,17 +1,18 @@
 import useRouteContext from '@docusaurus/useRouteContext';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { PropSidebarItem } from '@docusaurus/plugin-content-docs';
 import {
   GlobalPluginData as DocsGlobalPluginData,
   useAllDocsData,
 } from '@docusaurus/plugin-content-docs/client';
 import { useDocsSidebar } from '@docusaurus/theme-common/internal';
-import config from '../switcher.config';
 import {
   Doc,
   MenuItem,
   Section,
   Sidebar,
   Item,
+  Config,
 } from '../common/components/Switcher';
 
 export type GlobalPluginData = DocsGlobalPluginData & {
@@ -78,11 +79,17 @@ function findSidebarItems(
 }
 
 export default function useSwitcher(): SwitcherProps {
+  const {
+    siteConfig: { themeConfig },
+  } = useDocusaurusContext();
   const plugins = useAllDocsData() as {
     [pluginId: string]: GlobalPluginData;
   };
   const docId = useRouteContext().plugin.id;
   const { name: sidebarId, items: sidebarItems } = useDocsSidebar();
+
+  const config = themeConfig.switcher as Config;
+  if (!config) return { main: sidebarItems };
 
   // Convert the sections and docs configuration into a single
   // tree structure of sections, subsections, docs, and versions.

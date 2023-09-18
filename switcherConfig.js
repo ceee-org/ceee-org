@@ -1,11 +1,15 @@
-import type { Config } from './common/components/Switcher';
-import { generateSwitcherConfig } from './utils/pluginConfigGenerators';
+// @ts-check
+
+const {
+  generateSwitcherConfig,
+} = require('./src/utils/pluginConfigGenerators');
 const {
   buildPluginsConfig,
   maintainPluginsConfig,
-} = require('../versionedConfig');
+} = require('./versionedConfig');
 
-const config: Config = {
+/** @type {import('./src/common/components/Switcher').Config} */
+module.exports = {
   docs: [
     ...generateSwitcherConfig(buildPluginsConfig),
     ...generateSwitcherConfig(maintainPluginsConfig),
@@ -50,5 +54,3 @@ const config: Config = {
     },
   ],
 };
-
-export default config;

@@ -3,6 +3,7 @@ const path = require('path');
 const { create_doc_plugin, globStatic } = require('./src/utils/config');
 const common = require('./common/docusaurus.config');
 const contentConfigs = require('./contentPlugins');
+const switcherConfig = require('./switcherConfig');
 const articleRedirectsFile = require('./articleRedirects');
 
 module.exports = async () => {
@@ -25,6 +26,7 @@ module.exports = async () => {
 
   const themeConfig = {
     themeConfig: {
+      switcher: switcherConfig,
       image: 'img/iota-wiki.png',
       navbar: {
         hideOnScroll: true,
