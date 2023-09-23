@@ -1,13 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  url: 'https://wiki.iota.org',
+  url: 'https://c-eee.org',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'log',
   favicon: 'img/favicon.ico',
   trailingSlash: true,
-  organizationName: 'iota-wiki', // Usually your GitHub org/user name.
-  projectName: 'iota-wiki', // Usually your repo name.
+  organizationName: 'ceee-org', // Usually your GitHub org/user name.
+  projectName: 'ceee-org', // Usually your repo name.
   stylesheets: [
     'https://fonts.googleapis.com/css?family=Material+Icons',
     {
